@@ -28,5 +28,19 @@ Kernel tree: https://github.com/Atom-X-Devs/scarlet_xiaomi_sm7325/tree/staging
 
 ## Changelogs
 
+**YAAP-HOMEMADE 2nd Release - 20251228**
+* Update all unpinned blobs to redwood OS2.0.13.0.UMSMIXM.
+* Update WiFiDisplay system blobs to dada OS2.0.217.0.WOCMIXM.
+* Override kernel BPF version to 5.10.239.
+* Fix compilation, hotspot, boot failure with Android 16 QPR2.
+* Enable support for background blur.
+* Enable Graphics Acceleration.
+* Disable GL Backpressure.
+* Remove overlay for Aperture.
+* Set GMS INTENT for QR code scanner to fix the QR code scanner QS tile.
+* Remove vendor-defined color profiles since it causes yellow tint on Instagram reels.
+* Fix "Phone doesn't ring through the earbuds but only the phone speaker when receiving incoming call" bug.
+* Avoid access of deprecated LocUnorderedSetMap entry in gps.
+
 **YAAP-HOMEMADE Initial Release - 20250913**
 * Initial unofficial build.
