@@ -28,6 +28,9 @@ Kernel tree: https://github.com/Atom-X-Devs/scarlet_xiaomi_sm7325/tree/staging
 
 ## Changelogs
 
+**YAAP-HOMEMADE 3rd Release - 20251229**
+* Add support for OTA updates using YAAP's OpenDelta updater.
+
 **YAAP-HOMEMADE 2nd Release - 20251228**
 * Update all unpinned blobs to redwood OS2.0.13.0.UMSMIXM.
 * Update WiFiDisplay system blobs to dada OS2.0.217.0.WOCMIXM.
