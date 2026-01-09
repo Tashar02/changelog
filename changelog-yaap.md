@@ -28,6 +28,19 @@ Kernel tree: https://github.com/Atom-X-Devs/scarlet_xiaomi_sm7325/tree/staging
 
 ## Changelogs
 
+**Note: For every release, latest YAAP source code is synced. Changelogs here are from device-side only**
+
+**YAAP-HOMEMADE 4th Release - 20260110**
+* Update unpinned blobs to redwood OS2.0.16.0.UMSMIXM.
+* Update WFD system blobs to dada OS3.0.3.0.WOCMIXM.
+* Update CarrierConfig to LA.QSSI.16.0.r1-06700-qssi.0.
+* Transition back to stock time_daemon from Sony's TimeKeep.
+* Boost CPU and GPU to max freq for expensive rendering, particularly for background blur.
+* Set background blur radius for Launcher3 to 23.
+* Switch back from expensive mirror blur to clamp blur.
+* Fix dlopen failures for mialgoengine camera lib.
+* Fix soft reboot caused by BPF check failure to detect GpuMem tracing in libmeminfo.
+
 **YAAP-HOMEMADE 3rd Release - 20251229**
 * Add support for OTA updates using YAAP's OpenDelta updater.
 
