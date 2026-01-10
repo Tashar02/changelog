@@ -30,6 +30,9 @@ Kernel tree: https://github.com/Atom-X-Devs/scarlet_xiaomi_sm7325/tree/staging
 
 **Note: For every release, latest YAAP source code is synced. Changelogs here are from device-side only**
 
+**YAAP-HOMEMADE 4th Release - 20260110-hotfix**
+* Correctly override enhanced blur radius for Launcher3 and set it to 20dp.
+
 **YAAP-HOMEMADE 4th Release - 20260110**
 * Update unpinned blobs to redwood OS2.0.16.0.UMSMIXM.
 * Update WFD system blobs to dada OS3.0.3.0.WOCMIXM.
