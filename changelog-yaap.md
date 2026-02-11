@@ -17,22 +17,27 @@ Vendor trees:
 Kernel tree: https://github.com/Atom-X-Devs/scarlet_xiaomi_sm7325/tree/staging
 ```
 
+---
+
 ## Flashing Process
 
-* Reboot to recovery
-* Format data (Only if you want to do a clean flash)
-* Connect to adb and run `adb sideload YAAP-*.zip` from platform-tools.
-* Reboot to recovery.
-* Reboot to system.
-* After flashing, unlock the device and let it idle for 2-3 minutes to allow Android processes to properly initialize before using it.
+1. Reboot to recovery.
+2. Format data (Only if you want to do a clean flash).
+3. Connect to adb and run `adb sideload YAAP-*.zip` from platform-tools.
+4. Reboot to recovery.
+5. Reboot to system.
+6. After flashing, unlock the device and let it idle for 2-3 minutes to allow Android processes to properly initialize before using it.
+
+---
 
 ## Changelogs
 
-**Note: For every release, latest YAAP source code is synced. Changelogs here are from device-side only**
+**Note: For every release, latest YAAP source code is synced. If ROM changes are included here, then they are extra additions from me.**
 
-**YAAP-HOMEMADE 5th Release - 20260211**
+### YAAP-HOMEMADE 5th Release - 20260211
 
-**ROM (includes custom changes, added by Tashar02):**
+#### ROM:
+
 * Do not ship LineageOS's Camelot (PDF viewer), Glimpse (Gallery) and Twelve (Music player).
 * Add support for window ignore secure.
 * Implement screenshot sound effect from NothingOS.
@@ -90,9 +95,6 @@ Kernel tree: https://github.com/Atom-X-Devs/scarlet_xiaomi_sm7325/tree/staging
 * Reduce thread scheduling overhead in SurfaceFlinger
 * Import arter97's VRR implementation in SurfaceFlinger.
 * Enable mirror blur for notification shade and app drawer.
-* Remove blue tint on white theme.
-* Prevent Launcher3 crash on boot.
-* Fix and bring back option to customize blur radius for Launcher3.
 * Set default enhanced blur radius for Launcher3 to 15dp.
 * Increase dalvik heap growth limit for 6gb ram targets to 384 MB.
 * Disable event writing in production builds.
@@ -101,7 +103,8 @@ Kernel tree: https://github.com/Atom-X-Devs/scarlet_xiaomi_sm7325/tree/staging
 * Do not pin non-existent libraries.
 * Return early in BootReceiver if trace_pipe doesn't exist.
 
-**Device:**
+#### Device:
+
 * Kernel state at Scarlet-v4.0-beta4.
 * Update unpinned blobs to redwood OS2.0.17.0.UMSMIXM.
 * Update public.libraries.txt to redwood OS2.0.17.0.UMSMIXM.
@@ -124,10 +127,16 @@ Kernel tree: https://github.com/Atom-X-Devs/scarlet_xiaomi_sm7325/tree/staging
 * Remove some problematic and duplicated pinned files.
 * Specify ambient color temperature sensor.
 
-**YAAP-HOMEMADE 4th Release - 20260110-hotfix**
+---
+
+### YAAP-HOMEMADE 4th Release - 20260110-hotfix
+
 * Correctly override enhanced blur radius for Launcher3 and set it to 20dp.
 
-**YAAP-HOMEMADE 4th Release - 20260110**
+---
+
+### YAAP-HOMEMADE 4th Release - 20260110
+
 * Update unpinned blobs to redwood OS2.0.16.0.UMSMIXM.
 * Update WFD system blobs to dada OS3.0.3.0.WOCMIXM.
 * Update CarrierConfig to LA.QSSI.16.0.r1-06700-qssi.0.
@@ -138,10 +147,16 @@ Kernel tree: https://github.com/Atom-X-Devs/scarlet_xiaomi_sm7325/tree/staging
 * Fix dlopen failures for mialgoengine camera lib.
 * Fix soft reboot caused by BPF check failure to detect GpuMem tracing in libmeminfo.
 
-**YAAP-HOMEMADE 3rd Release - 20251229**
+---
+
+### YAAP-HOMEMADE 3rd Release - 20251229
+
 * Add support for OTA updates using YAAP's OpenDelta updater.
 
-**YAAP-HOMEMADE 2nd Release - 20251228**
+---
+
+### YAAP-HOMEMADE 2nd Release - 20251228
+
 * Update all unpinned blobs to redwood OS2.0.13.0.UMSMIXM.
 * Update WiFiDisplay system blobs to dada OS2.0.217.0.WOCMIXM.
 * Override kernel BPF version to 5.10.239.
@@ -155,5 +170,8 @@ Kernel tree: https://github.com/Atom-X-Devs/scarlet_xiaomi_sm7325/tree/staging
 * Fix "Phone doesn't ring through the earbuds but only the phone speaker when receiving incoming call" bug.
 * Avoid access of deprecated LocUnorderedSetMap entry in gps.
 
-**YAAP-HOMEMADE Initial Release - 20250913**
+---
+
+### YAAP-HOMEMADE Initial Release - 20250913
+
 * Initial unofficial build.
