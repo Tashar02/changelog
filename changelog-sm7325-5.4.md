@@ -4,7 +4,7 @@
 Kernel: Scarlet
 Type: Stable
 Devices: POCO X5 Pro / Redmi Note 12 Pro Speed (redwood)
-Compiler: Android clang 20.0.0 with LLD 20.0.0, based on r547379
+Compiler: Android clang 22.0.0 with LLD 22.0.0, based on r584948
 Compiler specific optimization: DCE and Clang Full LTO
 Kernel Source: https://github.com/Atom-X-Devs/scarlet_xiaomi_sm7325.git
 Kernel Branch: redwood
@@ -29,6 +29,60 @@ xiaomi-qgki_defconfig and redwood.config
 * After flashing, unlock the device and let it idle for 2-3 minutes to allow Android processes to properly initialize before using it.
 
 ## Changelogs
+
+**v4.0 - 13/03/2025**
+* Merge CLO tag `LA.UM.9.14.r1-26700-LAHAINA.QSSI16.0`.
+* Drop incomplete backport of a PSI patchset.
+* Upstream BPF to msm-5.10.
+* Fix USB debugging and WiFi hotspot on Android 16 QPR2.
+* Add support for ZSTD compression algorithm v1.5.8 by Facebook.
+* Apply optimizations from Samsung to ZSTD.
+* Allow zram compression algorithm to be changed by users again.
+* Add support for BBR v3 TCP congestion control.
+* Restrict 8-channel audio capture to non-Xiaomi platforms to fix microphone while using speaker mode on social media apps.
+* Fix UAF in dataipa and vidc.
+* Enable hybrid mode only for HFR usecase in vidc.
+* Fix kernel panic caused by mailbox.
+* Handle spurious interrupt in pmic-arb spmi driver.
+* Upstream smcinvoke to msm-5.15.
+* Use threaded interrupts for glink.
+* Ignore rpm-glink irq for suspend wake-up.
+* Upstream EEVDF to mainline.
+* Bring-in various general scheduler improvements from mainline.
+* Optimize LLC cache affinity tiebreaker in CASS.
+* Apply piecewise linear boosting to DVFS headroom in schedutil.
+* Fully fix-up and bring back support for thermal pressure to make more accurate scheduler decisions.
+* Switch to non deferrable work in qcom-cpufreq-hw.
+* Fix spinlock initialization order in qcom-cpufreq-hw.
+* Reduce limits polling delay to 1ms in qcom-cpufreq-hw.
+* Set each CPU clock to its max when waking up in qcom-cpufreq-hw.
+* Retain disable depth for managed interrupts across CPU hotplug.
+* Rebalance managed interrupts across multi-CPU hotplug.
+* Improve exFAT performance and bring-in several upstream fixes to the driver.
+* Fix I/O error on fsync() in detached loop devices.
+* Fix a directory corruption in ext4.
+* Drop deprecated garbage collection logic from f2fs.
+* avoid always making PTE dirty in pte_mkwrite().
+* Fix reference counting in ovl_mmap error path.
+* Protect free_pgtables with mmap_lock write lock in exit_mmap.
+* Fix UAF when mm->mmap is reused after being freed.
+* Set default vmpressure threshold of Simple LMK to 95.
+* Wait 30ms in Simple LMK before starting killing victim processes again.
+* Thaw the entire victim process in Simple LMK.
+* Skip reclaim throttle on critical processes.
+* Hardcode dirty_expire_centisecs to 30s.
+* Fix double-free in dbitmap of binder.
+* Fix a memory leak in the UFS driver.
+* Add AOP rx queue len defense check in aoss driver to prevent potential kernel panic.
+* Fix race between runtime PM suspend and MMIO read in qcacmn's hal_reo.
+* Stop filtering out unavailable userspace logs.
+* Improve eventpoll logging to stop indicting timerfd.
+* Do not set 3V to voltage regulator of goodix fingerprint driver.
+* Fix some compiler warnings.
+* Remove CONFIG_USB_LAN78XX.
+* Drop RKSU (KernelSU-legacy) by github.com/rsuntk in favor of XXKSU by github.com/Backslashxx to integrate scope-minimized manual KernelSU hooks v1.9.
+* Pass netd_integration_test.
+* Compile kernel using Android (AOSP) clang 22.0.0, based on r584948..
 
 **v3.1 - 19/10/2025**
 * Upstream zram to mainline.
