@@ -32,7 +32,41 @@ Kernel tree: https://github.com/Atom-X-Devs/scarlet_xiaomi_sm7325/tree/staging
 
 ## Changelogs
 
-**Note: For every release, latest YAAP source code is synced. If ROM changes are included here, then they are extra additions from me.**
+**Note: For every release, latest YAAP source code is synced. Both my changes and changes coming straight from YAAP are included here.**
+
+### YAAP-HOMEMADE 6th Release - 20260316
+
+#### ROM:
+
+* Make chosen font affect more UI elements.
+* Settings: Move AOD schedule to the new AOD page.
+* Never show the pseudo locales.
+* Revert "Fix split shade missing issue".
+* Revert "Optimize home to desktop transition".
+* Fix ignore secure window flag functionality.
+* Do not pin unnecessary files.
+* Apply patchset for EXEMPT BUGFIX from Google mainly to fix security vulnerabilities.
+* Dismiss screenshot window on touch outside.
+* Fix some memory leaks.
+* Mitigate system_server boot OOM on 512 MB heaps.
+* Fast return in FileObserver when the observer is NULL.
+* Only close system dialogs for visible windows.
+* Reduce unnecessary calls to getLatestVsyncEventData.
+* Postpone NetworkWatchlistService scan during boot.
+* Use IntArray instead of ArraySet<Integer> to store int lists.
+* Remove screenshot action chip labels.
+* Fix secondary user crash with system user locked.
+* Fix external storage access with system user locked.
+
+#### Device:
+
+* Kernel state at Scarlet-v4.0.
+* Revert "Specify ambient color temperature sensor" since we don't have the required sensor.
+* Unmount /firmware after fastbootd starts.
+* Do not shim libwfdnative with libinput_shim.
+* Drop OnePlus Dolby Atmos in favor of Dolby Atmos from Sony Xperia 1V.
+* Tune dax config of Dolby Atmos for redwood.
+* Specify integer-array in rro_overlays where applicable.
 
 ### YAAP-HOMEMADE 5th Release - 20260211
 
