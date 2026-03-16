@@ -34,6 +34,20 @@ Kernel tree: https://github.com/Atom-X-Devs/scarlet_xiaomi_sm7325/tree/staging
 
 **Note: For every release, latest YAAP source code is synced. Both my changes and changes coming straight from YAAP are included here.**
 
+### YAAP-HOMEMADE 7th Release - 20260317
+
+#### ROM:
+* Merge March ASB.
+* Remove security fixes unneeded for Android 16 QPR2.
+* Revert "Mitigate system_server boot OOM on 512 MB heaps".
+* Introduce new YAAP logo and boot animation.
+* Correctly theme AlertDialog with M3 colors.
+* Fix secondary click in InternetTile.
+* Remove non-translatable strings from "About Phone".
+* Synchronously check dev options availability.
+* Center the buttons in recent app menu to fix padding issues.
+* Fix material expressive for permission manager.
+
 ### YAAP-HOMEMADE 6th Release - 20260316
 
 #### ROM:
