@@ -34,9 +34,25 @@ Kernel tree: https://github.com/Atom-X-Devs/scarlet_xiaomi_sm7325/tree/staging
 
 **Note: For every release, latest YAAP source code is synced. Both my changes and changes coming straight from YAAP are included here.**
 
-### YAAP-HOMEMADE 7th Release - 20260317
+### YAAP-HOMEMADE 8th Release - 20260320 - Eid Mubarak
 
 #### ROM:
+* Add separate WiFi and Mobile data QS tiles.
+* Update smartspace to CP1A.260305.018.
+
+#### Device:
+* Improve clarity and loudness of audio produced by Dolby Atmos.
+* Fix split shade disappearance with blur turned on, weird full white/black QS panel with blur turned off, caused by seamless transition for doze being disabled.
+
+#### Kernel:
+* Improve transmit buffer handling in ir-spi driver.
+* Fix pelt clock sync when entering idle.
+* Drop Oneplus 3 fingerprintd thaw hack.
+* Do not allow KernelSU manager built with a dummy keystore since it poses a security vulnerability.
+* Bump Scarlet to `v4.1`.
+
+### YAAP-HOMEMADE 7th Release - 20260317
+
 * Merge March ASB.
 * Remove security fixes unneeded for Android 16 QPR2.
 * Revert "Mitigate system_server boot OOM on 512 MB heaps".
