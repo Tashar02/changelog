@@ -30,6 +30,12 @@ xiaomi-qgki_defconfig and redwood.config
 
 ## Changelogs
 
+**v4.1 - 21/03/2025 [Eid Mubarak]**
+* Improve transmit buffer handling in ir-spi driver.
+* Fix pelt clock sync when entering idle.
+* Drop Oneplus 3 fingerprintd thaw hack.
+* Do not allow KernelSU manager built with a dummy keystore since it poses a security vulnerability.
+
 **v4.0 - 13/03/2025**
 * Merge CLO tag `LA.UM.9.14.r1-26700-LAHAINA.QSSI16.0`.
 * Drop incomplete backport of a PSI patchset.
