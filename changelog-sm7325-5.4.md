@@ -33,6 +33,9 @@ For lisa: xiaomi-qgki_defconfig and lisa.config
 * All rightful commit authors, especially @Divyanshu-Modi at GitHub.
 * My testers, especially @c7c9d5, @Megagangar, @mehuldekate205, @soumyadip_69, @ongenesis, @paganminkombaung at Telegram.
 
+## Pull Request Contributions
+1. [Wiktor Józwiak](https://github.com/Atom-X-Devs/scarlet_xiaomi_sm7325/issues/10)
+
 ## Changelogs
 
 **v7.0 - 30/10/2026**
