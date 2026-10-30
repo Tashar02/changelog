@@ -29,6 +29,10 @@ For lisa: xiaomi-qgki_defconfig and lisa.config
 * Alternatively, use Franco Kernel Manager's built-in flasher to flash the kernel (requires root). 
 * After flashing, unlock the device and let it idle for 2-3 minutes to allow Android processes to properly initialize before using it.
 
+## Credits
+* All rightful commit authors, especially @Divyanshu-Modi at GitHub.
+* My testers, especially @c7c9d5, @Megagangar, @mehuldekate205, @soumyadip_69, @ongenesis, @paganminkombaung at Telegram.
+
 ## Changelogs
 
 **v7.0 - 30/10/2026**
