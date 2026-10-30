@@ -3,23 +3,24 @@
 ```
 Kernel: Scarlet
 Type: Stable
-Devices: POCO X5 Pro / Redmi Note 12 Pro Speed (redwood)
-Compiler: Android clang 22.0.2 with LLD 22.0.2, based on r596125
+Devices: POCO X5 Pro / Redmi Note 12 Pro Speed (redwood), Xiaomi 11 Lite 5G NE (lisa)
+Compiler: Neutron clang 24.0.0 with Neutron LLD 24.0.0
 Compiler specific optimization: DCE and Clang Full LTO
 Kernel Source: https://github.com/Atom-X-Devs/scarlet_xiaomi_sm7325.git
-Kernel Branch: redwood
+Kernel Branch: main
 ```
 ## Instructions for using the kernel source
 
 ### Branch
 ```
-redwood: Includes the stable release of each update.
-staging: An experimental branch that is NOT recommended for use until it has been merged into the 'redwood' branch.
+main: Includes the stable release of each update.
+staging: An experimental branch that is NOT recommended for use until it has been merged into the 'main' branch.
 ```
 
 ### Defconfig
 ```
-xiaomi-qgki_defconfig and redwood.config
+For redwood: xiaomi-qgki_defconfig and redwood.config
+For lisa: xiaomi-qgki_defconfig and lisa.config
 ```
 
 ## Flashing Process
@@ -29,6 +30,69 @@ xiaomi-qgki_defconfig and redwood.config
 * After flashing, unlock the device and let it idle for 2-3 minutes to allow Android processes to properly initialize before using it.
 
 ## Changelogs
+
+**v7.0 - 30/10/2026**
+* Fix LSM session leak in msm_lsm_close() that caused soundtrigger failures and audio HAL crash loops.
+* Merge CLO tag `LA.UM.9.14.1.r1-21700-QCM6490.QISI15.0`.
+* Update qcacld-3.0, fw-api, and camera-kernel to CLO tag `LA.UM.9.14.1.r1-21700-QCM6490.QISI15.0`.
+* Merge branch `linux-5.4.y` of openela/kernel-lts.
+* Pick relevant commits from CLO tag `LA.UM.9.14.7.r1-03700-QCM6490.QISI15.0` across UFS, ADSPRPC, USB DWC3, and KGSL instead of merging the tag directly due to divergences from lahaina msm-5.4.
+* Avoid UAF memory access in exit path, handle delayed Rx cancel cmd interrupt, reduce the interrupt wait time for SE IRQ in msm_geni_serial.
+* Revert "serial: msm_geni_serial: Use correct condition for device suspend check" to fix a very rare kernel panic.
+* Fix [CVE-2026-43037](https://github.com/advisories/GHSA-p2wf-qj6m-x5fg), [CVE-2026-31504](https://github.com/advisories/GHSA-5v9p-3rfc-6rw2), [CVE-2025-38617](https://github.com/advisories/GHSA-g6xr-fxvq-ffp4), [CVE-2026-52943](https://github.com/advisories/GHSA-vwrr-994w-h832), [CVE-2026-43038](https://github.com/advisories/GHSA-78m7-4xgc-xrrq), [CVE-2026-23455](https://github.com/advisories/GHSA-gm78-p64f-gx97), [CVE-2026-31662](https://github.com/advisories/GHSA-895h-4xx6-r95p), [CVE-2026-64306](https://github.com/advisories/GHSA-9h5h-wjm4-4jqg), [CVE-2026-64313](https://github.com/advisories/GHSA-x49g-5fpg-2qxf), [CVE-2026-80590](https://github.com/advisories/GHSA-m48g-6cv9-p3rh), and [CVE-2026-81000](https://github.com/advisories/GHSA-32hf-vhcc-85c2).
+* Fix use-after-free read of tail->len in unix_stream_data_wait().
+* Pick stable kernel fixes from mainline across networking, IPv4/IPv6, netfilter, TUN/TAP, procfs, genirq, and ptrace.
+* Import various filesystem fixes for ext4, f2fs, and fat.
+* Fix verifier bypass in fuse_prog_is_valid_access for fuse-bpf.
+* Add support for EROFS.
+* Enable per-CPU high-priority kthreads for EROFS decompression.
+* Fix write failure in block crypto fallback.
+* Import remaining commits missed from the inline crypto encryption update to upstream patchset (including fscrypt, skcipher API transition, and casefolding sync).
+* Pull kallsyms improvements and cleanups from mainline.
+* Pull some SPS, QCEDEV, and USB interconnect patches from msm-5.15.
+* Bring irqchip, pinctrl, and genirq updates from upstream as dependencies to land Qualcomm PDC driver.
+* Re-implement Qualcomm PDC irqchip with upstream architecture and modular support.
+* Add implementation of Qualcomm IPCC mailbox from mainline, dropping downstream driver.
+* Pause memlat monitor sampling timer when the CPU cluster is idle to avoid unnecessary wakeups.
+* Revert applying thermal pressure when frequency dips below non-boost frequency in qcom-cpufreq-hw since the yupik doesn't have boost frequencies.
+* Route LMh thermal pressure through Frequency Invariance Engine (FIE) in qcom-cpufreq-hw and skip redundant thermal pressure updates when frequency limits are unchanged.
+* Remove CONFIG_SCHED_DEBUG and make sched debug functionality unconditional.
+* Drop legacy Android max frequency capping to eliminate conflicting CPU capacity reporting with upstream thermal pressure.
+* Upstream EEVDF to mainline.
+* Re-enable PLACE_DEADLINE_INITIAL and PLACE_REL_DEADLINE sched features for better initial task placement and relative deadline preservation across migrations.
+* Bring some general scheduler improvements from mainline.
+* Fix some use-after-free in binder.
+* Migrate to rcu_hurry in key areas to resolve lazy RCU performance regression and improve app launch performance.
+* Add support for POSIX_FADV_NOREUSE in memory management.
+* Apply micro-optimizations to hot page allocation path and refine atomic/RT reserve access handling.
+* Move zram lockmap to be per-zram instead of per table and use custom keys per zram object.
+* Fix race in accessing memory_section->usage in sparsemem and missing barrier in anon_vma init.
+* Tune SSG I/O scheduler default expiration values and disable front merges to reduce latency on UFS workloads.
+* Free perms_list on every bridge exit path in smcinvoke.
+* Add 1ms sleep in wda_qmi of datarmnet to avoid circular wait.
+* Unlock mutex lock before returning for non-custom waveforms in haptic_hv vibrator driver.
+* Make directory locking killable in do_last() of VFS.
+* Silence false-positive page allocation failure warnings in qdf_nbuf of qcacmn.
+* Clear xrun state before sending buffer in msm-compress audio driver.
+* Use freezable wait for forced requests in fuse request_wait_answer().
+* Use freezable wait in dcache d_wait_lookup().
+* Update snapshot of MMC crypto from msm-5.10.
+* Update AW882XX audio driver to v2.0.13.
+* Update Goodix touch driver to v1.4.17 with IC name lookup simplification and memory deallocation order fix.
+* Fix IRQ depth imbalance on resume from gesture and prevent destroying workqueues during shutdown in Goodix touch driver.
+* Implement charging status check for GT9897T touch driver, disable capacitance data for production, and optimize panel check delay.
+* Import missing lisa changes for apr_mius.
+* Import FPC fingerprint driver from ingres-s-oss for lisa.
+* Properly guard redwood-specific changes in qti_battery_charger and camera driver.
+* Fix xm_property_id sequence for lisa in qti_battery_charger.
+* Disable pm8008j PMIC and LDO on Xiaomi sm7325 platform.
+* Import missing camera clock settings, fix regulator table, and use suspend MCLK pinctrl for front sensor of lisa.
+* Introduce tsens_chipinfo nvmem cells property on yupik.
+* Move SDE IB bandwidth voting from DISP RSC to APPS RSC and factor in AB for IB vote calculation.
+* Fix uninitialized `display` variable in `*_bridge_[enable|disable]` in SDE display driver.
+* Enable all configs required by kernel FCM 7 in xiaomi_stock_defconfig.
+* Stop calling do_execve_file in umh and remove the now unused do_execve_file from exec.
+* Upstream KernelSU to `v32799`.
 
 **v6.0 - 10/07/2025**
 * Merge CLO tag `LA.UM.9.14.1.r1-21200-QCM6490.QISI15.0` (Linux tag is at v5.4.302 state).
